@@ -12,13 +12,18 @@ export uuid
 export name
 
 """
+An abstract behaviour. This **must** provide a `uuid`` method.
+"""
+abstract type AbstractBehaviour end
+
+"""
 A Behaviour which could be performed.
 
 # Fields
 
 - `uuid::`[`UUID`](@ref) -- The UUID of the [`Behaviour`](@ref).
 """
-struct Behaviour
+struct Behaviour <: AbstractBehaviour
     uuid::UUID
 end
 
@@ -44,7 +49,7 @@ A Behaviour with a name.
 - `behaviour::`[`Behaviour`](@ref) -- The [`Behaviour`](@ref) to be named.
 - `name::String` -- The name of the [`NamedBehaviour`](@ref).
 """
-struct NamedBehaviour
+struct NamedBehaviour <: AbstractBehaviour
     behaviour::Behaviour
     name::String
 end
