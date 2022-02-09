@@ -12,9 +12,20 @@ export uuid
 export name
 
 """
-An abstract behaviour. This **must** provide a `uuid`` method.
+An abstract behaviour. This **must** provide a
+`uuid(b::AbstractBehaviour)::`[`UUID`](@ref) method.
 """
 abstract type AbstractBehaviour end
+
+"""
+    uuid(b::AbstractBehaviour)::UUID
+
+This errors if it has not been defined for some implementation of
+AbstractBehaviour.
+"""
+uuid(b::AbstractBehaviour)::UUID = error(
+    "No uuid method defined for AbstractBehaviour type $(typeof(b))"
+)
 
 """
 A Behaviour which could be performed.
