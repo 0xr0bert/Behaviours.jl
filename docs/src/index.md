@@ -1,11 +1,7 @@
 # Behaviours.jl Documentation
 
-```@docs
-Behaviours
-Behaviour
-NamedBehaviour
-uuid
-name
+```@autodocs
+Modules = [Behaviours]
 ```
 
 ## Other packages
