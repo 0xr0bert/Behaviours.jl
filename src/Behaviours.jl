@@ -23,6 +23,13 @@ struct Behaviour
 end
 
 """
+    Behaviour()::Behaviour
+
+Create a new [`Behaviour`](@ref) using a newly generated [`UUID`](@ref).
+"""
+Behaviour() = Behaviour(UUIDs.uuid4())
+
+"""
     uuid(b::Behaviour)::UUID
 
 Gets the [`UUID`](@ref) of a [`Behaviour`](@ref).
@@ -43,6 +50,15 @@ struct NamedBehaviour
 end
 
 """
+    NamedBehaviour(name::String)::NamedBehaviour
+
+Creates a new [`NamedBehaviour`](@ref), with a specified `name` and randomly
+generated [`UUID`](@ref), as implemented in the constructor
+[`Behaviour()`](@ref).
+"""
+NamedBehaviour(name::String) = NamedBehaviour(Behaviour(), name)
+
+"""
     uuid(b::NamedBehaviour)::UUID
 
 Gets the [`UUID`](@ref) of a [`NamedBehaviour`](@ref).
@@ -55,7 +71,5 @@ uuid(b::NamedBehaviour)::UUID = b.behaviour.uuid
 Gets the name of a [`NamedBehaviour`](@ref).
 """
 name(b::NamedBehaviour)::String = b.name
-
-greet() = print("Hello World!")
 
 end # module
