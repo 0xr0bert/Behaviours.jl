@@ -8,6 +8,7 @@ using UUIDs
 
 export Behaviour
 export NamedBehaviour
+export AbstractBehaviour
 export uuid
 export name
 
